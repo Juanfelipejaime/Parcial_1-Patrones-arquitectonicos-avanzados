@@ -22,7 +22,7 @@ spec:
             - configMapRef:
                 name: {{ .Release.Name }}-backend-config
             - secretRef:
-                name: {{ .Release.Name }}-backend-secret
+                name: {{ .Release.Name }}-db
 
           resources:
             requests:
