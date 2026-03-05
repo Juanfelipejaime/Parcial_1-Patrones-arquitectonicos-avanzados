@@ -2,7 +2,7 @@ replicaCount: 1
 
 backend:
   image:
-    repository: nginx
+    repository: springcommunity/spring-petclinic-rest
     tag: latest
 
 frontend:
