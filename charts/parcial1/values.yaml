@@ -173,26 +173,30 @@ postgresql:
 
 backend:
   replicaCount: 1
+
   image:
-    repository: nginx
+    repository: springcommunity/spring-petclinic-rest
     tag: latest
+
   resources:
     requests:
       cpu: "100m"
       memory: "128Mi"
     limits:
-      cpu: "250m"
+      cpu: "200m"
       memory: "256Mi"
 
 frontend:
   replicaCount: 1
+
   image:
     repository: nginx
     tag: latest
+
   resources:
     requests:
+      cpu: "50m"
+      memory: "64Mi"
+    limits:
       cpu: "100m"
       memory: "128Mi"
-    limits:
-      cpu: "250m"
-      memory: "256Mi"
