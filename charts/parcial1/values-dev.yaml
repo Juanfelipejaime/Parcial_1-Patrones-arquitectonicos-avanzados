@@ -1,6 +1,5 @@
-replicaCount: 1
-
 backend:
+  replicaCount: 1
   image:
     repository: springcommunity/spring-petclinic-rest
     tag: latest
