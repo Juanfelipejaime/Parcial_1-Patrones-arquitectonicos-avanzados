@@ -2,7 +2,7 @@ replicaCount: 1
 
 backend:
   image:
-    repository: in28min/spring-boot-rest-api
+    repository: springcommunity/spring-petclinic-rest
     tag: latest
     
 frontend:
@@ -12,6 +12,10 @@ frontend:
 
 postgresql:
   auth:
-    username: devuser
-    password: devpass
-    database: parcial1db
+    username: petclinic
+    password: petclinicpass
+    database: petclinic
+  primary:
+    persistence:
+      enabled: true
+      size: 1Gi
