@@ -1,0 +1,17 @@
+replicaCount: 1
+
+backend:
+  image:
+    repository: nginx
+    tag: latest
+
+frontend:
+  image:
+    repository: nginx
+    tag: latest
+
+postgresql:
+  auth:
+    username: devuser
+    password: devpass
+    database: parcial1db

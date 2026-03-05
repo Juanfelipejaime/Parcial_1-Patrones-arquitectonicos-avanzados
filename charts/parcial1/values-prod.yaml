@@ -1,0 +1,17 @@
+replicaCount: 2
+
+backend:
+  image:
+    repository: nginx
+    tag: latest
+
+frontend:
+  image:
+    repository: nginx
+    tag: latest
+
+postgresql:
+  auth:
+    username: produser
+    password: prodpass
+    database: parcial1db
