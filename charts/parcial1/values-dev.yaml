@@ -2,9 +2,9 @@ replicaCount: 1
 
 backend:
   image:
-    repository: springcommunity/spring-petclinic-rest
+    repository: in28min/spring-boot-rest-api
     tag: latest
-
+    
 frontend:
   image:
     repository: nginx
