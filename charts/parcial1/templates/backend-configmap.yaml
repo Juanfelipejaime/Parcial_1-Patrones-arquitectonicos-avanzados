@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Release.Name }}-backend
+  name: {{ .Release.Name }}-backend-config
 data:
   DB_HOST: {{ printf "%s-postgresql" .Release.Name | quote }}
   DB_PORT: "5432"
