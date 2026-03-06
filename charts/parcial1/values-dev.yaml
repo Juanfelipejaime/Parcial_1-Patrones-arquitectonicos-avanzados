@@ -17,3 +17,5 @@ postgresql:
     persistence:
       enabled: true
       size: 1Gi
+ingress:
+  host: parcial1.local
