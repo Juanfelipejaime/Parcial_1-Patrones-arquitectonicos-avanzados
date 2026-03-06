@@ -2,7 +2,7 @@
 
 ## Descripción del proyecto
 
-Este proyecto implementa el despliegue de una aplicación full-stack en Kubernetes utilizando **Helm** y **ArgoCD** para la gestión GitOps.
+Este proyecto implementa el despliegue de una aplicación full-stack en Kubernetes utilizando Helm y ArgoCD para la gestión GitOps.
 
 La arquitectura está compuesta por tres componentes principales:
 
@@ -95,26 +95,8 @@ kubectl get ingress -A
 
 # 2. Configuración de ArgoCD
 
-ArgoCD se utiliza para implementar un flujo **GitOps**, donde el estado del clúster se sincroniza automáticamente desde el repositorio Git.
+ArgoCD se utiliza para implementar un flujo donde el estado del clúster se sincroniza automáticamente desde el repositorio Git.
 
-El repositorio tiene la siguiente estructura:
-
-```
-charts/
-   parcial1/
-      Chart.yaml
-      values-dev.yaml
-      values-prod.yaml
-      templates/
-
-environments/
-   dev/
-      application.yaml
-   prod/
-      application.yaml
-```
-
----
 
 ## 2.1 Aplicación DEV
 
@@ -184,23 +166,23 @@ Esto significa que:
 
 # 3. Endpoints de acceso
 
-Los servicios se exponen mediante **Ingress NGINX**.
+Los servicios se exponen mediante **Ingress NGINX** y fueron probados dentro del entorno local de despliegue.
 
 ## Frontend
 
-Entorno DEV
+El frontend se encuentra disponible a través del Ingress configurado para el entorno correspondiente.  
+En las pruebas realizadas, el acceso se verificó desde el entorno local del clúster.
 
-```
-http://dev.parcial1.local
+## Backend
+
+El backend se expone mediante la ruta `/api/*` a través del Ingress.  
+Para validar su funcionamiento, se probó el endpoint:
+
+```text
+/api
 ```
 
-Entorno PROD
-
-```
-http://prod.parcial1.local
-```
-
-El frontend es un servidor **Nginx** que muestra una página HTML con un botón para consumir el backend.
+Este endpoint devuelve una respuesta JSON desde el servicio `httpbin`.
 
 ---
 
