@@ -5,11 +5,11 @@ backend:
     tag: latest
   resources:
     requests:
-      cpu: "100m"
-      memory: "128Mi"
+      cpu: "25m"
+      memory: "32Mi"
     limits:
-      cpu: "400m"
-      memory: "256Mi"
+      cpu: "100m"
+      memory: "64Mi"
 
 frontend:
   replicaCount: 1
@@ -18,11 +18,11 @@ frontend:
     tag: latest
   resources:
     requests:
-      cpu: "50m"
-      memory: "64Mi"
+      cpu: "20m"
+      memory: "24Mi"
     limits:
-      cpu: "200m"
-      memory: "128Mi"
+      cpu: "80m"
+      memory: "48Mi"
 
 postgresql:
   auth:
@@ -32,7 +32,7 @@ postgresql:
   primary:
     persistence:
       enabled: true
-      size: 2Gi
+      size: 1Gi
 
 ingress:
   host: prod.parcial1.local
