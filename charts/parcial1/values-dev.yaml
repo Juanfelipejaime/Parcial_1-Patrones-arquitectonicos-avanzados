@@ -35,4 +35,4 @@ postgresql:
       size: 1Gi
 
 ingress:
-  host: parcial1.local
+  host: dev.parcial1.local

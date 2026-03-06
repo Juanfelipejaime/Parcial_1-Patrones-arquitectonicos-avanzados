@@ -1,5 +1,5 @@
 backend:
-  replicaCount: 1
+  replicaCount: 2
   image:
     repository: kennethreitz/httpbin
     tag: latest
@@ -8,11 +8,11 @@ backend:
       cpu: "100m"
       memory: "128Mi"
     limits:
-      cpu: "300m"
+      cpu: "400m"
       memory: "256Mi"
 
 frontend:
-  replicaCount: 1
+  replicaCount: 2
   image:
     repository: nginx
     tag: latest
@@ -33,3 +33,6 @@ postgresql:
     persistence:
       enabled: true
       size: 2Gi
+
+ingress:
+  host: prod.parcial1.local
