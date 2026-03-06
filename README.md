@@ -165,6 +165,8 @@ Esto significa que:
 
 ---
 
+![Argo-funcionando](image.png)
+
 ## Endpoints de acceso
 
 ### Entorno DEV
