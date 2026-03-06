@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-frontend-html
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Frontend Test</title>
+    </head>
+    <body>
+        <h1>Frontend funcionando</h1>
+        <button onclick="callApi()">Probar Backend</button>
+        <pre id="result"></pre>
+
+        <script>
+        function callApi() {
+            fetch("/api/get")
+            .then(r => r.json())
+            .then(data => {
+                document.getElementById("result").textContent =
+                    JSON.stringify(data, null, 2);
+            })
+        }
+        </script>
+    </body>
+    </html>
