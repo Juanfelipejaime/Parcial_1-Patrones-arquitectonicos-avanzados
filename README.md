@@ -172,6 +172,7 @@ Esto significa que:
 ### Entorno
 El entorno de producción fue configurado para acceso directo mediante la IP pública/externa del Ingress Controller:
 
+```
 - `http://129.212.149.42/prod/`
 - `http://129.212.149.42/prod-api/get`
 ```
