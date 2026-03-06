@@ -1,7 +1,6 @@
 backend:
-  replicaCount: 1
   image:
-    repository: springcommunity/spring-petclinic-rest
+    repository: kennethreitz/httpbin
     tag: latest
     
 frontend:
