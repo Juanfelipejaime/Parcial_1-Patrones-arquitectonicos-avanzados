@@ -7,3 +7,4 @@ data:
   DB_PORT: "5432"
   SPRING_PROFILES_ACTIVE: "postgres,spring-data-jpa"
   SPRING_DATASOURCE_URL: "jdbc:postgresql://{{ printf "%s-postgresql" .Release.Name }}:5432/{{ .Values.postgresql.auth.database }}"
+  SPRING_SQL_INIT_MODE: "never"
