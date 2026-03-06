@@ -1,5 +1,5 @@
 backend:
-  replicaCount: 2
+  replicaCount: 1
   image:
     repository: kennethreitz/httpbin
     tag: latest
@@ -12,7 +12,7 @@ backend:
       memory: "256Mi"
 
 frontend:
-  replicaCount: 2
+  replicaCount: 1
   image:
     repository: nginx
     tag: latest
