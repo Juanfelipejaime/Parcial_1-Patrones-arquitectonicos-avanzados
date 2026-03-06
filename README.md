@@ -6,7 +6,7 @@ Este proyecto implementa el despliegue de una aplicación full-stack en Kubernet
 
 La arquitectura está compuesta por tres componentes principales:
 
-- **Base de datos:** PostgreSQL (chart oficial de Bitnami)
+- **Base de datos:** PostgreSQL (chart oficial de Bitnami) /La base de datos se crea pero por errores en la conexion no se conecto al backend/
 - **Backend:** API de prueba basada en `httpbin`
 - **Frontend:** Servidor Nginx que consume el backend mediante JavaScript
 
@@ -30,7 +30,8 @@ El despliegue se gestiona mediante **Helm charts** y se sincroniza automáticame
       | Frontend  |          |  Backend    |
       |  nginx    |          |  httpbin    |
       +-----------+          +-------------+
-                                   |
+                                   
+
                              +------------+
                              | PostgreSQL |
                              |  Bitnami   |
@@ -164,43 +165,18 @@ Esto significa que:
 
 ---
 
-# 3. Endpoints de acceso
+## Endpoints de acceso
 
-Los servicios se exponen mediante **Ingress NGINX** y fueron probados dentro del entorno local de despliegue.
+### Entorno DEV
 
-## Frontend
+### Entorno
+El entorno de producción fue configurado para acceso directo mediante la IP pública/externa del Ingress Controller:
 
-El frontend se encuentra disponible a través del Ingress configurado para el entorno correspondiente.  
-En las pruebas realizadas, el acceso se verificó desde el entorno local del clúster.
-
-## Backend
-
-El backend se expone mediante la ruta `/api/*` a través del Ingress.  
-Para validar su funcionamiento, se probó el endpoint:
-
-```text
-/api
+- `http://129.212.149.42/prod/`
+- `http://129.212.149.42/prod-api/get`
 ```
 
 Este endpoint devuelve una respuesta JSON desde el servicio `httpbin`.
-
----
-
-## Backend
-
-Los endpoints del backend se exponen mediante `/api`.
-
-Ejemplo:
-
-```
-http://dev.parcial1.local/api/get
-```
-
-```
-http://prod.parcial1.local/api/get
-```
-
-Estos endpoints devuelven una respuesta JSON desde el servicio `httpbin`.
 
 ---
 
