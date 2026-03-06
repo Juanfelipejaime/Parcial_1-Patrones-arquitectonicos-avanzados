@@ -8,6 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
+    {{- if eq .Values.ingress.mode "host" }}
     - host: {{ .Values.ingress.host | quote }}
       http:
         paths:
@@ -25,3 +26,21 @@ spec:
                 name: {{ .Release.Name }}-frontend
                 port:
                   number: 80
+    {{- else if eq .Values.ingress.mode "path" }}
+    - http:
+        paths:
+          - path: /prod-api/(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: {{ .Release.Name }}-backend
+                port:
+                  number: 80
+          - path: /prod/?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: {{ .Release.Name }}-frontend
+                port:
+                  number: 80
+    {{- end }}

@@ -17,7 +17,7 @@ data:
 
       <script>
         function callApi() {
-          fetch("/api/get")
+          fetch("{{ .Values.frontend.apiPath }}")
             .then(r => r.json())
             .then(data => {
               document.getElementById("result").textContent =

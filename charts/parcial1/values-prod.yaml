@@ -23,6 +23,7 @@ frontend:
     limits:
       cpu: "80m"
       memory: "48Mi"
+  apiPath: "/prod-api/get"
 
 postgresql:
   auth:
@@ -35,4 +36,4 @@ postgresql:
       size: 1Gi
 
 ingress:
-  host: prod.parcial1.local
+  mode: path
