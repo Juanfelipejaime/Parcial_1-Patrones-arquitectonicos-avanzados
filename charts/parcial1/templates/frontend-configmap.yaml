@@ -7,22 +7,26 @@ data:
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Frontend Test</title>
+      <meta charset="utf-8" />
+      <title>Frontend Test</title>
     </head>
     <body>
-        <h1>Frontend funcionando</h1>
-        <button onclick="callApi()">Probar Backend</button>
-        <pre id="result"></pre>
+      <h1>Frontend funcionando</h1>
+      <button onclick="callApi()">Probar Backend</button>
+      <pre id="result"></pre>
 
-        <script>
+      <script>
         function callApi() {
-            fetch("/api/get")
+          fetch("/api/get")
             .then(r => r.json())
             .then(data => {
-                document.getElementById("result").textContent =
-                    JSON.stringify(data, null, 2);
+              document.getElementById("result").textContent =
+                JSON.stringify(data, null, 2);
             })
+            .catch(err => {
+              document.getElementById("result").textContent = err.toString();
+            });
         }
-        </script>
+      </script>
     </body>
     </html>
